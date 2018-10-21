@@ -237,16 +237,6 @@ public class GameView implements GTKView {
 		int xx = x;
 		int rr = rotate;
 
-		//自由落下の処理
-		fallFrame++;
-		if ( fallFrame >= 60 ) {
-			fallFrame = 0;
-			if ( yy+1 >= fields.length ) {
-				yy = 0;
-			} else {
-				yy++;
-			}
-		}
 		//ハードドロップ
 		if ( KeyAction.isActive(KeyAction.HARDDROP) || isHardDropMode ) {
 			isHardDropMode = true;
@@ -325,6 +315,17 @@ public class GameView implements GTKView {
 			}
 			if ( !isDown ) {
 				highFallFrame = 0;
+			}
+		}
+
+		//自由落下の処理
+		fallFrame++;
+		if ( fallFrame >= 60 ) {
+			fallFrame = 0;
+			if ( yy+1 >= fields.length ) {
+				yy = 0;
+			} else {
+				yy++;
 			}
 		}
 
