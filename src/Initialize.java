@@ -30,7 +30,7 @@ public class Initialize implements GTKView {
 		g.setColor(clr);
 		g.setFont(font);
 
-		//※マルチスレッドでロードしているわけではないのでNOW LOADINGは実質飾りみたいなものです
+		//NOWLOADING(飾り)
 		g.drawString("NOW LOADING"+StringUtil.repeat(".", count), 400, 500);
 		count = ++count % 5;
 

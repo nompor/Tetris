@@ -35,6 +35,7 @@ public class Test5 {
 			int fallFrameCheck;
 			int x,y,r;
 			boolean isAlreadyHold;
+			boolean isHarddrop;
 
 			public void start() {
 				black = GTK.createIntColor(0, 0, 0);
@@ -191,7 +192,10 @@ public class Test5 {
 				int xx = x;
 				int rr = r;
 
-				if ( KeyAction.isActive(KeyAction.RIGHT) ) {
+				if (KeyAction.isActive(KeyAction.HARDDROP) || isHarddrop) {
+					isHarddrop = true;
+					yy++;
+				} else if ( KeyAction.isActive(KeyAction.RIGHT) ) {
 					xx++;
 				} else if (KeyAction.isActive(KeyAction.LEFT)) {
 					xx--;
@@ -293,8 +297,10 @@ public class Test5 {
 						}
 						nextInit();
 						isAlreadyHold = false;
+						isHarddrop = false;
 					}
 				}
+				if ( isHarddrop ) process();
 			}
 
 			public void draw(GTKGraphics g) {
