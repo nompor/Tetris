@@ -194,6 +194,7 @@ public class Test5 {
 
 				if (KeyAction.isActive(KeyAction.HARDDROP) || isHarddrop) {
 					isHarddrop = true;
+					fallFrame = 0;
 					yy++;
 				} else if ( KeyAction.isActive(KeyAction.RIGHT) ) {
 					xx++;
